@@ -7,7 +7,7 @@ bcrypt = Bcrypt(app)
 
 
 @app.route('/')
-def auth():
+def home():
     return render_template('login_regis.html')
 
 
