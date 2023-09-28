@@ -1,0 +1,91 @@
+{% extends "base.html" %} {%block content%}
+<div class="d-flex">
+    <div class="mt-5 mb-6 p-4 w-25 flex-sm-fill">
+        <form action='/process' method="POST" class="row g-3 bg-dark text-light p-3 mh-100">
+            <h3 class="text-primary">Register</h3>
+          {% with messages = get_flashed_messages(category_filter=['register']) %}
+            <!-- declare a variable called messages -->
+            {% if messages %}
+            <!-- check if there are any messages -->
+            {% for message in messages %}
+            <!-- loop through the messages -->
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <small class="text-danger">{{message}}</small>
+              <!-- display each message in a paragraph tag -->
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+      
+            {% endfor %} {% endif %} {% endwith %}
+          <div class="col-md-12">
+            <label for="inputEmail4" class="form-label">First Name:</label>
+            <input type="text" name='first_name' class="form-control" id="inputEmail4" />
+          </div>
+          <div class="col-md-12">
+            <label for="inputEmail4" class="form-label">Last Name:</label>
+            <input type="text" name='last_name' class="form-control" id="inputEmail4" />
+          </div>
+          <div class="col-md-12">
+            <label for="inputPassword4" class="form-label">Email:</label>
+            <input type="email" name='email' class="form-control" id="inputPassword4" />
+          </div>
+         
+          <div class="col-md-12">
+            <label for="inputPassword4" class="form-label">Password:</label>
+            <input type="password" name='password' class="form-control" id="inputPassword4" />
+          </div>
+          <div class="col-md-12">
+            <label for="inputPassword4" class="form-label">Confirm Password:</label>
+            <input type="password" name='confirm_pw' class="form-control" id="inputPassword4" />
+          </div>
+     
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary mb-2">Register</button>
+          </div>
+     
+        </form>
+      </div>
+      
+      
+      <div class="mt-5 p-4 w-25 flex-sm-fill">
+          <form action ='/process-login' method="POST" class="row  g-3 bg-dark p-5 text-light mh-100">
+            <h3 class="text-success">Login</h3>
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+              <!-- declare a variable called messages -->
+              {% if messages %}
+              <!-- check if there are any messages -->
+              {% for message in messages %}
+              <!-- loop through the messages -->
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <small class="text-danger">{{message}}</small>
+                <!-- display each message in a paragraph tag -->
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+        
+              {% endfor %} {% endif %} {% endwith %}
+            <div class="col-md-12">
+              <label for="inputPassword4" class="form-label">Email</label>
+              <input type="email" name='email' class="form-control" id="inputPassword4" />
+            </div>
+           
+            <div class="col-md-12">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" name='password' class="form-control" id="inputPassword4" />
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">Login</button>
+            </div>
+           
+          </form>
+        </div>
+</div>
+{%endblock%}

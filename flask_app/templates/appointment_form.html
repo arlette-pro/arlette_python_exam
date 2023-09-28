@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{%block title%}
+    <title> Create new Appointment </title>
+{%endblock%}
+
+{%block content%}
+
+<div class="d-flex mb-3">
+    <h3 class="p-2 me-auto text-primary">Add a New Appointment!</h3>
+    <div class="p-2"><a href="/">Logout</a></div>
+</div>
+
+<form action="/process_appointment" method="post">
+
+  <div class="row">
+    <div class="col-md-12">
+              <!-- task input -->
+              <div class="form-outline col-md-12 mb-4">
+                <label class="form-label" for="form4Example1">Task</label>
+                  <input type="text" id="form4Example1" name="task" class="form-control" />
+              </div>
+      </div>
+    
+      
+          <div class="col-md-12 mb-5">
+              <label for="inputPassword4"  class="form-label">Date</label>
+              <input type="date" class="form-control" name="date" id="inputPassword4" />
+          </div>
+          <label for="name">Status</label>
+          <select class="form-select col-mb-12" aria-label="Default select example" name="status">
+            <option selected>Status</option>
+            <option name="status" value="done">Done</option>
+            <option value="missed" name="status">Missed</option>
+            <option value="pending" name="status">Pending</option>
+          </select>
+
+    
+
+       
+      <div class="col-3 mt-5">
+        <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+      </div>
+    </div>
+   <form>
+
+{%endblock%}

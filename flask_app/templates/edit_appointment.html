@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{%block title%}
+    <title> Create new  </title>
+{%endblock%}
+
+{%block content%}
+
+<div class="d-flex mb-3">
+    <div class="p-2 me-auto"> <h3 class="text-primary">Edit Appointment</h3> </div>
+    <div class="p-2"><a href="/">Logout</a></div>
+</div>
+
+<form action="/process_update" method="post">
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6">
+            <!-- task input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form4Example1">task</label>
+                <input type="text" id="form4Example1" name="task" value="{{details.task}}" class="form-control" />
+              </div>
+            <div class="col-md-12 mb-5">
+                <label for="inputPassword4" class="form-label" >Date</label>
+                <input type="date" name='date' class="form-control" value="{{details.date}}" id="inputPassword4" />
+            </div>
+
+            <select class="form-select" aria-label="Default select example " name="status">
+                <option selected>Status</option>
+                <option value="done" name="status">Done</option>
+                <option value="missed" name="status">Missed</option>
+                <option value="pending" name="status">Pending</option>
+              </select>
+      
+            <div class="col-6 mt-5">
+                <button type="submit" class="btn btn-primary btn-block mb-4">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+            </div>
+            <input type="hidden" name="id" value="{{details.id}}">
+        </div>
+</form>
+
+{%endblock%}
